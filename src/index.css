@@ -24,6 +24,24 @@ body {
   justify-content: center;
 }
 
+.container {
+  width: 100%;
+}
+
+.container::before {
+  content: "";
+  background-image: url("../public/graffiti.jpg");
+  background-size: cover;
+  position: absolute;
+
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.15;
+  z-index: -1;
+}
+
 .header {
   color: var(--color-dark);
   text-align: center;
@@ -32,18 +50,18 @@ body {
   margin-bottom: 3rem;
 }
 
-.empty-book {
-  color: var(--color-dark);
-  text-align: center;
-  font-size: 1.4rem;
-  margin-top: 4rem;
-}
-
 .header h6 {
   font-size: 1.5rem;
   text-transform: uppercase;
   letter-spacing: 5px;
   font-weight: 400;
+}
+
+.empty-book {
+  color: var(--color-dark);
+  text-align: center;
+  font-size: 1.4rem;
+  margin-top: 4rem;
 }
 
 .searchbar {
@@ -58,7 +76,7 @@ body {
   border-radius: 7px;
   transition: 0.5s;
   background-color: #fff4e6;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .button,
@@ -103,7 +121,7 @@ body {
   margin-bottom: 10px;
   border-radius: 7px;
   background-color: #fff4e6;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .selected {
@@ -212,6 +230,9 @@ form h2 {
 .footer p {
   font-family: Epilogue, sans-serif;
   color: #b8b8b8;
+  color: var(--color-dark);
+  color: #706f6f;
+
   text-align: center;
   margin: 3rem 0;
   font-size: 1.1rem;
