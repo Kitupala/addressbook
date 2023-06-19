@@ -232,13 +232,14 @@ function InputForm({ onToggle, onAddContact }) {
           onChange={(e) => setPostalCode(e.target.value)}
         />
         <Button>Add</Button>
+
         <ButtonOutlined onToggle={onToggle}>Close</ButtonOutlined>
       </div>
     </form>
   );
 }
 
-function EditForm({ item, onToggle, onEditContact, onDeleteContact }) {
+function EditForm({ item, onEditContact, onDeleteContact }) {
   let [address, setAddress] = useState("");
   let [city, setCity] = useState("");
   let [postalCode, setPostalCode] = useState("");
@@ -289,7 +290,7 @@ function EditForm({ item, onToggle, onEditContact, onDeleteContact }) {
           />
           <Button onClick={onEditContact}>Save</Button>
         </div>
-        <div className="form-edit-delete">
+        <div className="delete">
           <ButtonOutlined onDeleteContact={() => onDeleteContact(id)}>
             Delete
           </ButtonOutlined>
@@ -386,7 +387,6 @@ function AddressBookItem({
       {showEdit && id === item.id && (
         <EditForm
           item={item}
-          onToggle={onToggle}
           onEditContact={onEditContact}
           onDeleteContact={onDeleteContact}
         />
@@ -398,9 +398,7 @@ function AddressBookItem({
 function Footer() {
   return (
     <footer className="footer">
-      <p>
-        <span class="year">2023</span> Ⓒopyright Kitupala | All Rights Reserved
-      </p>
+      <p>2023 Ⓒopyright Kitupala | All Rights Reserved</p>
     </footer>
   );
 }
