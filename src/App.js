@@ -121,6 +121,7 @@ export default function App() {
         onEditContact={handleEditContact}
         onDeleteContact={handleDeleteContact}
       />
+      <Footer />
     </div>
   );
 }
@@ -288,15 +289,10 @@ function EditForm({ item, onToggle, onEditContact, onDeleteContact }) {
           />
           <Button onClick={onEditContact}>Save</Button>
         </div>
-        <div className="form-edit-buttons">
-          <span className="feb-left">
-            <ButtonOutlined onDeleteContact={() => onDeleteContact(id)}>
-              Delete
-            </ButtonOutlined>
-          </span>
-          <span className="feb-right">
-            <ButtonOutlined onToggle={onToggle}>Close</ButtonOutlined>
-          </span>
+        <div className="form-edit-delete">
+          <ButtonOutlined onDeleteContact={() => onDeleteContact(id)}>
+            Delete
+          </ButtonOutlined>
         </div>
       </form>
     </div>
@@ -365,7 +361,6 @@ function AddressBookItem({
   onDeleteContact,
 }) {
   return (
-    // <li className="addressbook">
     <li
       className={`addressbook ${showEdit && id === item.id ? "selected" : ""}`}
     >
@@ -397,5 +392,15 @@ function AddressBookItem({
         />
       )}
     </li>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="footer">
+      <p>
+        <span class="year">2023</span> Ⓒopyright Kitupala | All Rights Reserved
+      </p>
+    </footer>
   );
 }

@@ -75,6 +75,7 @@ body {
 .button-outline {
   border: 1px solid var(--color-medium);
   background-color: #fff4e6;
+  padding: 0.8rem 5rem;
 }
 
 .button:hover {
@@ -88,7 +89,6 @@ body {
 .addressbook ul {
   list-style: none;
   font-size: 1.4rem;
-  /* margin-bottom: 2rem; */
 }
 
 .addressbook li {
@@ -101,13 +101,13 @@ body {
   padding: 1.2rem;
   margin-bottom: 10px;
   border-radius: 7px;
-  transition: 0.5s;
   background-color: #fff4e6;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
 .selected {
-  border: 1px solid var(--color-medium);
+  outline: 1px solid var(--color-medium);
+  outline-offset: -1px;
 }
 
 .running-number {
@@ -150,16 +150,10 @@ form {
   padding-bottom: 0;
 }
 
-.form-edit-buttons {
-  padding-top: 2rem;
-  display: grid;
-  grid-template-columns: 1fr min-content min-content 1fr;
-  justify-items: center;
-  gap: 3rem;
-}
-
-.feb-left {
-  grid-column: 2 / 3;
+.form-edit-delete {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
 }
 
 label {
@@ -200,4 +194,13 @@ form h2 {
   text-transform: uppercase;
   letter-spacing: -0.5px;
   margin-bottom: 1.6rem;
+}
+
+.footer p {
+  font-family: Epilogue, sans-serif;
+  color: #b8b8b8;
+  text-align: center;
+  margin: 3rem 0;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
