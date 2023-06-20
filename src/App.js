@@ -87,7 +87,6 @@ export default function App() {
   function handleDeleteContact(id) {
     setContacts((contacts) => contacts.filter((contact) => contact.id !== id));
     setShowEdit(false);
-    console.log("delete");
   }
 
   return (
@@ -126,17 +125,10 @@ export default function App() {
   );
 }
 
-function Button({ children, onToggle }) {
+// Reusable Button Component
+function Button({ children, className, onClick }) {
   return (
-    <button className="button" onClick={onToggle}>
-      {children}
-    </button>
-  );
-}
-
-function ButtonOutlined({ children, onToggle, onDeleteContact }) {
-  return (
-    <button className="button-outline" onClick={(onToggle, onDeleteContact)}>
+    <button className={className} onClick={onClick}>
       {children}
     </button>
   );
@@ -165,7 +157,9 @@ function SearchBar({ onToggle, sortBy, setSortBy, setQuery }) {
         <option value="asc">Alphabetical ascending</option>
         <option value="desc">Alphabetical descending</option>
       </select>
-      <Button onToggle={onToggle}>Add contact</Button>
+      <Button className={"button"} onClick={onToggle}>
+        Add contact
+      </Button>
     </div>
   );
 }
@@ -231,9 +225,16 @@ function InputForm({ onToggle, onAddContact }) {
           value={postalCode}
           onChange={(e) => setPostalCode(e.target.value)}
         />
-        <Button>Add</Button>
+        <Button
+          className={"button"}
+          onClick={!firstName || !lastName ? onToggle : handleSubmit}
+        >
+          Add
+        </Button>
 
-        <ButtonOutlined onToggle={onToggle}>Close</ButtonOutlined>
+        <Button className={"button-outline"} onClick={onToggle}>
+          Close
+        </Button>
       </div>
     </form>
   );
@@ -288,12 +289,15 @@ function EditForm({ item, onEditContact, onDeleteContact }) {
             placeholder={item.postalCode}
             onChange={(e) => setPostalCode(e.target.value)}
           />
-          <Button onClick={onEditContact}>Save</Button>
+          <Button className={"button"}>Save</Button>
         </div>
         <div className="delete">
-          <ButtonOutlined onDeleteContact={() => onDeleteContact(id)}>
+          <Button
+            className={"button-outline"}
+            onClick={() => onDeleteContact(id)}
+          >
             Delete
-          </ButtonOutlined>
+          </Button>
         </div>
       </form>
     </div>
@@ -357,7 +361,6 @@ function AddressBookItem({
   showEdit,
   onShowEdit,
   id,
-  onToggle,
   onEditContact,
   onDeleteContact,
 }) {
