@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# addressBook
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This React app was created as a practice project.  
 
 ## Available Scripts
 
