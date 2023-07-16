@@ -1,9 +1,13 @@
-import { useBook } from "../context/BookContext";
 import EditForm from "./EditForm";
 
-export default function AddressBookItem() {
-  const { showEdit, id, sortBy, contacts, query, dispatch } = useBook();
-
+export default function AddressBookItem({
+  showEdit,
+  id,
+  sortBy,
+  contacts,
+  query,
+  dispatch,
+}) {
   let sortedContacts;
 
   if (sortBy === "none") sortedContacts = contacts;
@@ -19,10 +23,8 @@ export default function AddressBookItem() {
       .sort((b, a) => a.lastName.localeCompare(b.lastName));
 
   if (query !== "")
-    sortedContacts = contacts.filter(
-      (contact) =>
-        contact.lastName.toLowerCase().includes(query) ||
-        contact.firstName.toLowerCase().includes(query)
+    sortedContacts = contacts.filter((contact) =>
+      contact.lastName.toLowerCase().includes(query)
     );
 
   return sortedContacts.map((contact, index) => (
@@ -52,7 +54,9 @@ export default function AddressBookItem() {
         checked={id === contact.id && showEdit}
       />
 
-      {showEdit && id === contact.id && <EditForm contact={contact} />}
+      {showEdit && id === contact.id && (
+        <EditForm contact={contact} dispatch={dispatch} />
+      )}
     </li>
   ));
 }

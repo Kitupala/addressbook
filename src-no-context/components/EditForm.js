@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { useKey } from "./useKey";
-import { useBook } from "../context/BookContext";
 
 import Button from "../UI/Button";
 
-export default function EditForm({ contact }) {
-  const { dispatch } = useBook();
+export default function EditForm({ contact, dispatch }) {
   let [address, setAddress] = useState("");
   let [city, setCity] = useState("");
   let [postalCode, setPostalCode] = useState("");
@@ -36,36 +34,33 @@ export default function EditForm({ contact }) {
     <div className="form-edit-contact-container">
       <form onSubmit={handleSubmit}>
         <div className="form-edit-contact">
-          <label htmlFor="address">Address</label>
+          <label>Address</label>
           <input
-            id="address"
             type="text"
             placeholder={contact.address}
             onChange={(e) => setAddress(e.target.value)}
           />
 
-          <label htmlFor="city">City</label>
+          <label>City</label>
           <input
-            id="city"
             type="text"
             placeholder={contact.city}
             onChange={(e) => setCity(e.target.value)}
           />
 
-          <label htmlFor="postalCode">Postal code</label>
+          <label>Postal code</label>
           <input
-            id="postalCode"
             type="text"
             placeholder={contact.postalCode}
             onChange={(e) => setPostalCode(e.target.value)}
           />
 
-          <Button className="button">Save</Button>
+          <Button className={"button"}>Save</Button>
         </div>
 
         <div className="delete">
           <Button
-            className="button-outline"
+            className={"button-outline"}
             onClick={() => dispatch({ type: "deleteContact", payload: id })}
           >
             Delete

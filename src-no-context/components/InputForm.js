@@ -1,10 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { useBook } from "../context/BookContext";
-
 import Button from "../UI/Button";
 
-export default function InputForm() {
-  const { dispatch } = useBook();
+export default function InputForm({ dispatch }) {
   const [lastName, setLastName] = useState("");
   const [firstName, setFirstName] = useState("");
   const [address, setAddress] = useState("");
@@ -29,63 +26,58 @@ export default function InputForm() {
   };
 
   function handleSubmit(e) {
-    e.preventDefault();
     if (!firstName || !lastName) return;
+    e.preventDefault();
     dispatch({ type: "addContact", payload: newContact });
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-add-contact">
-        <label htmlFor="firstName">First name</label>
+        <label>First name</label>
         <input
-          id="firstName"
           type="text"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
           ref={input}
         />
 
-        <label htmlFor="lastName">Last name</label>
+        <label>Last name</label>
         <input
-          id="lastName"
           type="text"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
         />
 
-        <label htmlFor="address">Address</label>
+        <label>Address</label>
         <input
-          id="address"
           type="text"
           value={address}
           onChange={(e) => setAddress(e.target.value)}
         />
 
-        <label htmlFor="city">City</label>
+        <label>City</label>
         <input
-          id="city"
           type="text"
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />
 
-        <label htmlFor="postalCode">Postal code</label>
+        <label>Postal code</label>
         <input
-          id="postalCode"
           type="text"
           value={postalCode}
           onChange={(e) => setPostalCode(e.target.value)}
         />
         <Button
-          className="button"
-          // onClick={() => dispatch({ type: "addContact", payload: newContact })}
+          className={"button"}
+          onClick={() => dispatch({ type: "addContact", payload: newContact })}
         >
           Add
         </Button>
 
         <Button
-          className="button-outline"
+          className={"button-outline"}
           onClick={() => dispatch({ type: "showSearchbar" })}
         >
           Close

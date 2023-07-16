@@ -1,11 +1,9 @@
 import { useRef } from "react";
 import { useKey } from "./useKey";
-import { useBook } from "../context/BookContext";
 
 import Button from "../UI/Button";
 
-export default function SearchBar() {
-  const { dispatch, sortBy } = useBook();
+export default function SearchBar({ dispatch, sortBy }) {
   const input = useRef(null);
 
   useKey("Enter", function () {
@@ -38,7 +36,7 @@ export default function SearchBar() {
         <option value="desc">Alphabetical descending</option>
       </select>
       <Button
-        className="button"
+        className={"button"}
         onClick={() => dispatch({ type: "showInput" })}
       >
         Add contact

@@ -1,0 +1,240 @@
+:root {
+  --color-lightest: #fff4e6;
+  --color-light: #ffe8cc;
+  --color-medium: #ffa94d;
+  --color-dark: #ff922b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  height: 100vh;
+  color: #495057;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  min-width: 700px;
+}
+
+.container::before {
+  content: "";
+  background-image: url("../public/graffiti.jpg");
+  background-size: cover;
+  position: absolute;
+
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.15;
+  z-index: -1;
+}
+
+.header {
+  color: var(--color-dark);
+  text-align: center;
+  font-size: 3.6rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.header h6 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-weight: 400;
+}
+
+.empty-book {
+  color: var(--color-dark);
+  text-align: center;
+  font-size: 1.4rem;
+  margin-top: 4rem;
+}
+
+.searchbar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: start;
+  column-gap: 2.6rem;
+
+  padding: 1.2rem;
+  margin-bottom: 2rem;
+  border-radius: 7px;
+  transition: 0.5s;
+  background-color: #fff4e6;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button,
+.button-outline {
+  background-color: var(--color-medium);
+  color: #343a40;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button-outline {
+  border: 1px solid var(--color-medium);
+  background-color: #fff4e6;
+  padding: 0.8rem 4rem;
+}
+
+.button:hover {
+  background-color: var(--color-dark);
+}
+
+.button-outline:hover {
+  background-color: #ffebce;
+}
+
+.addressbook ul {
+  list-style: none;
+  font-size: 1.4rem;
+}
+
+.addressbook li {
+  display: grid;
+  grid-template-columns: 10px repeat(3, 1fr) 1rem;
+  align-items: center;
+  justify-content: start;
+  column-gap: 6rem;
+
+  padding: 1.2rem;
+  margin-bottom: 10px;
+  border-radius: 7px;
+  background-color: #fff4e6;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.selected {
+  outline: 1px solid var(--color-medium);
+  outline-offset: -1px;
+}
+
+.running-number {
+  color: #9f9f9f;
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+form {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  background-color: var(--color-lightest);
+  border-radius: 7px;
+}
+
+.form-add-contact {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 9rem 1fr 9rem 1fr;
+
+  gap: 1.2rem;
+  margin-bottom: 1.6rem;
+  padding: 1.2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.form-edit-contact-container {
+  grid-column: 1 / -1;
+  margin-top: 0.5rem;
+}
+
+.form-edit-contact {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 9rem 1fr 9rem 1fr;
+
+  gap: 1.2rem;
+  padding: 1.2rem;
+  padding-bottom: 0;
+}
+
+.delete {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+label {
+  font-weight: 500;
+}
+
+input,
+select {
+  font-family: inherit;
+  color: inherit;
+  font-size: 1.2rem;
+  padding: 0.7rem;
+  text-align: center;
+  border: 1px solid var(--color-light);
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+select {
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  background-position: calc(100% - 12px) center !important;
+  background: url("data:image/svg+xml,<svg height='10px' width='10px' viewBox='0 0 16 16' fill='%23000000' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>")
+    no-repeat;
+  padding: 8px 32px 8px 16px;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border: 1px solid var(--color-dark);
+}
+
+input[type="checkbox"] {
+  accent-color: var(--color-medium);
+}
+
+form .button,
+form .button-outline {
+  margin-top: 0.2rem;
+  grid-column: 4;
+}
+
+form h2 {
+  grid-column: 1 / -1;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  margin-bottom: 1.6rem;
+}
+
+.footer p {
+  font-family: Epilogue, sans-serif;
+  color: #b8b8b8;
+  color: var(--color-dark);
+  color: #706f6f;
+
+  text-align: center;
+  margin: 3rem 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
