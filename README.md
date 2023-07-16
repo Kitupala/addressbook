@@ -7,3 +7,8 @@ This React app was created as a practice project. User can basically add, search
 
 Link to website https://kitupala-addressbook.netlify.app/
 
+
+### Refactoring App 6/7/23
+
+I decided to refactor this project and code. All basic functionality and UI remained the same (except option to use 'Enter' / 'Esc' keys and input focus on InputForm) but what lies under the hood changed drastically. Components are now separated on 'components' folder and App.js uses useReducer hook. Components also take advantage of useState, useRef, useEffect and custom hook called useKey. I managed to reduce prop drilling a lot thanks to useReducer hook. You'll find App-V1.js from repo so you can compare original code versus existing one.
+
